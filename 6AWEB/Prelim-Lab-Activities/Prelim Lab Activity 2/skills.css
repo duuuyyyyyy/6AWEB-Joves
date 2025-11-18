@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --accent-color: #007bff;
+    --accent-light: #e6f2ff;
+    --text-color: #333;
+    --heading-color: #1a1a1a;
+    --subtle-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cv-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 40px 60px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: var(--text-color);
+    line-height: 1.6;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.cv-content {
+    margin-top: 30px;
+}
+
+.profile-section,
+.skills-section {
+    margin-bottom: 45px;
+}
+
+.section-title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: var(--heading-color);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: none;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+.profile-text {
+    font-size: 1.05rem;
+    color: #444;
+    text-align: justify;
+    line-height: 1.8;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.skills-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.skills-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skills-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+    transition: transform 0.2s ease;
+}
+
+.skills-list li:hover {
+    transform: translateX(5px);
+    color: var(--accent-color);
+}
+
+.skills-list li::before {
+    content: "🔷";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .cv-container {
+        padding: 30px 25px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cv-container {
+        padding: 20px 15px;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+
+    .profile-text,
+    .skills-list li {
+        font-size: 0.9rem;
+    }
+}
+
+@media print {
+    .cv-container {
+        padding: 20px;
+        max-width: 100%;
+        box-shadow: none;
+    }
+
+    .section-title::after {
+        background: #333 !important;
+    }
+
+    .section-title {
+        page-break-after: avoid;
+    }
+
+    .profile-section,
+    .skills-section {
+        page-break-inside: avoid;
+    }
+
+    .skills-list li::before {
+        content: "•";
+        color: #333 !important;
+    }
+}
