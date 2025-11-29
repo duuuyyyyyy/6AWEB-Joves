@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Binding Demonstration</title>
+    <link rel="stylesheet" href="data-binding.css">
+</head>
+<body>
+    <div class="center-wrapper">
+        <div class="container">
+            <h1>Data Binding Demonstration</h1>
+            <hr>
+
+            <div class="content-section">
+                <img [src]="imageUrl" [alt]="altText" [width]="w" [height]="h">
+
+                <p [style.color]="textColor">Employee of the Day</p>
+                <p [class.highlighted]="isHighlighted">For being an exemplary employee and making a significant impact over this day.</p>
+            </div>
+
+            <hr class="section-separator">
+
+            <div class="input-section">
+                <p [style.color]="textColor">Employee Name</p>
+                <input [(ngModel)]="yourName" placeholder="Enter employee name">
+                <p class="greeting-text">Congratulations, {{yourName}} !</p>
+            </div>
+
+            <hr class="section-separator">
+
+            <div class="counter-section">
+                <h3 [style.color]="textColor"> Times {{yourName}} became the "Employee of the Day"</h3>
+                <div class="button-group">
+                    <button (click)="increment()" class="btn primary">INCREMENT</button>
+                    <button (click)="decrement()" class="btn secondary">DECREMENT</button>
+                </div>
+                <p class="count-text">Count: {{count}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="center-wrapper part2-wrapper">
+        <div class="container part2-container">
+            <h1> {{studentName}} </h1>
+            <hr> <section class="content-section"> <h2>Property Binding</h2>
+                <img [src]="imageUrl2" width="200" alt="Student Image"/>
+                <br /><br />
+                <button [disabled]="isDisabled" class="btn primary">Submit</button> </section>
+
+            <hr class="section-separator"> <section class="content-section">
+                <h2>Class Binding</h2>
+                <p [class.passing]="isPassing" [class.failing]="!isPassing">
+                    Student Result: {{ isPassing ? 'Passed' : 'Failed' }}
+                </p>
+            </section>
+
+            <hr class="section-separator"> <section class="content-section">
+                <h2>Style Binding</h2>
+                <div
+                    [style.background]="boxColor"
+                    [style.width]="boxSize"
+                    [style.height]="boxSize"
+                    class="box">
+                </div>
+            </section>
+        </div>
+    </div>
+
+</body>
+</html>
